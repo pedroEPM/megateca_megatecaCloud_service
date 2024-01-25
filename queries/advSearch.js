@@ -11,14 +11,19 @@ const schemaType = (type) => {
 }
 
 class AdvSearch {
-    async getAllInfo(type, settings) {
+    async getAllInfo(type, settings, settingsForCounter, firstTimeSearch) {
         try {
             const db = await openDB();
             const schemaName = schemaType(type);
-            const getNotes = await db.collection(schemaName).aggregate(settings).toArray();
+            let getAll = [];
+            if(firstTimeSearch !== 'true') {
+                getAll = await db.collection(schemaName).aggregate(settings).toArray();
+            } else {
+                getAll = await db.collection(schemaName).aggregate(settingsForCounter).next();
+            }
             await closeDB(); 
 
-            return getNotes;
+            return getAll;
              
         } catch (error) {
             console.log(error);

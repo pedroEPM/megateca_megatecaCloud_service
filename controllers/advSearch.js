@@ -6,6 +6,11 @@ class AdvSearch {
         try {
             
             const cBody = req.body;
+            const settingsForCounter = [
+                {
+                    $count: 'totalDocuments',
+                },
+            ];
             const settings = [
                 { $sort: {
                     customId: 1
@@ -14,10 +19,17 @@ class AdvSearch {
                 { $limit: cBody.cLimit }
             ];
             const cParams = setCustomParams(cBody);
-            if(cParams.match) settings.unshift({$match: cParams.match})
-            if(cParams.cSearch) settings.unshift({$search: cParams.cSearch})
+           
+            if(cParams.match) {
+                settings.unshift({$match: cParams.match})
+                settingsForCounter.unshift({$match: cParams.match})
+            }
+            if(cParams.cSearch) {
+                settings.unshift({$search: cParams.cSearch})
+                settingsForCounter.unshift({$search: cParams.cSearch})
+            }
             
-            const data = await getAllInfo(cBody.search, settings);
+            const data = await getAllInfo(cBody.search, settings, settingsForCounter, cBody.firstTimeSearch);
 
             res.status(200).json({
                 ok: true,
