@@ -13,6 +13,7 @@ const schemaType = (type) => {
 class AdvSearch {
     async getAllInfo(type, settings, settingsForCounter, firstTimeSearch) {
         try {
+            console.log(settingsForCounter)
             const db = await openDB();
             const schemaName = schemaType(type);
             let getAll = [];
