@@ -19,6 +19,7 @@ class AdvSearch {
                 { $limit: cBody.cLimit }
             ];
             const cParams = setCustomParams(cBody);
+            console.log(cParams)
            
             if(cParams.match) {
                 settings.unshift({$match: cParams.match})
