@@ -19,7 +19,7 @@ class AdvSearch {
             if(firstTimeSearch !== 'true') {
                 getAll = await db.collection(schemaName).aggregate(settings).toArray();
             } else {
-                getAll = await db.collection(schemaName).aggregate(settingsForCounter).next();
+                getAll = await db.collection(schemaName).aggregate(settingsForCounter).allowDiskUse(true);
             }
             await closeDB(); 
 
