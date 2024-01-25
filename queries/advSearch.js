@@ -21,7 +21,7 @@ class AdvSearch {
             } else {
                 getAll = await db.collection(schemaName).aggregate(settingsForCounter).next();
             }
-            await closeDB(); 
+            // await closeDB(); 
 
             return getAll;
              
