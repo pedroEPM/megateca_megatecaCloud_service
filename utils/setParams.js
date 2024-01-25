@@ -1,4 +1,5 @@
 const { setTypeSearchFT, indexFortype, removeAccents } = require('./atlasSearchObjFT');
+const mongoose = require('mongoose');
 
 const setCustomParams = (body) => {
     const pdfBody = {}, imageBody = {}, noteBody = {};
@@ -33,11 +34,11 @@ const setCustomParams = (body) => {
     }
 
     if (body.publicationRef && !body.key) {
-        pdfBody.match.publication = imageBody.match.publicationRef =  noteBody.match.publicationRef =  body.publicationRef;
+        pdfBody.match.publication = imageBody.match.publicationRef =  noteBody.match.publicationRef =  mongoose.Types.ObjectId(body.publicationRef);
     }
 
     if (body.noteBookRef && !body.key) {
-        pdfBody.match.notebook = imageBody.match.noteBookRef = noteBody.match.noteBookRef = body.noteBookRef;
+        pdfBody.match.notebook = imageBody.match.noteBookRef = noteBody.match.noteBookRef = mongoose.Types.ObjectId(body.noteBookRef);
     }
 
     if (body.keysentence && !body.key) {
