@@ -34,11 +34,11 @@ const setCustomParams = (body) => {
     }
 
     if (body.publicationRef && !body.key) {
-        pdfBody.match.publication = imageBody.match.publicationRef =  noteBody.match.publicationRef = new ObjectID(body.publicationRef);
+        pdfBody.match.publication = imageBody.match.publicationRef =  noteBody.match.publicationRef = body.publicationRef;
     }
 
     if (body.noteBookRef && !body.key) {
-        pdfBody.match.notebook = imageBody.match.noteBookRef = noteBody.match.noteBookRef = new ObjectID(body.noteBookRef);
+        pdfBody.match.notebook = imageBody.match.noteBookRef = noteBody.match.noteBookRef = body.noteBookRef;
     }
 
     if (body.keysentence && !body.key) {
