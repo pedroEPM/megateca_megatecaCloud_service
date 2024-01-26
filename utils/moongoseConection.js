@@ -4,6 +4,8 @@ const uri = `mongodb+srv://${process.env.MONGO_USER_NAME}:${process.env.MONGO_PA
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  keepAlive: true, // Mantener la conexión abierta
+  socketTimeoutMS: 0, // Deshabilitar el tiempo de espera de la conexión
 });
 
 const db = mongoose.connection;
