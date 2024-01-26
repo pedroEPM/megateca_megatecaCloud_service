@@ -4,7 +4,7 @@ const uri = `mongodb+srv://${process.env.MONGO_USER_NAME}:${process.env.MONGO_PA
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  poolSize: 10
+  maxPoolSize: 10
 });
 
 const db = mongoose.connection;
