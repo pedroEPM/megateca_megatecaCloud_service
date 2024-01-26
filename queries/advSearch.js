@@ -42,6 +42,7 @@ class AdvSearch {
         try {
 
             for(let i = 2024; i >= 1925; i++) {
+                console.log(`--- ${i} ---`)
                 const cBody = {
                     date: {
                         $gte: new Date(`${i}-01-01`),
@@ -56,6 +57,7 @@ class AdvSearch {
                 for(const LitleNote of allOldNotes) allData.push(LitleNote);
                 for(const LitleNote of cAllNotes) allData.push(LitleNote);
                 
+                if(allData.length > 0) console.log(`-- ${allData.length} length --`)
                 for(const newAllLitleData of allData) {
                     const newNote = new notes(setNote(newAllLitleData));
                     await newNote.save();
