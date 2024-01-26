@@ -41,7 +41,7 @@ class AdvSearch {
 
         try {
 
-            for(let i = 2024; i >= 1925; i--) {
+            for(let i = 2014; i >= 1925; i--) {
                 console.log(`--- ${i} ---`)
                 const cBody = {
                     date: {
