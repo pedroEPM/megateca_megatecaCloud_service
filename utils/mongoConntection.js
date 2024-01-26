@@ -8,6 +8,8 @@ const dbName = 'megamedia';
 
 const openDB = async () => {
   // Use connect method to connect to the server
+  console.log(url)
+
   await client.connect();
   console.log('Connected successfully to server');
   const db = client.db(dbName);

@@ -1,4 +1,5 @@
 require('dotenv').config();
+require('./utils/moongoseConection');
 const routes = require('./routes/v1')
 const express = require('express')
 const cors = require('cors')

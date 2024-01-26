@@ -1,4 +1,6 @@
-const { getAllInfo } = require('../queries/advSearch');
+const oldNotes = require('../models/oldNotes2');
+
+const { getAllInfo, sendInfoInAnotherSchema } = require('../queries/advSearch');
 const { setCustomParams } = require('../utils/setParams');
 
 class AdvSearch {
@@ -31,6 +33,25 @@ class AdvSearch {
             
             const data = await getAllInfo(cBody.search, settings, settingsForCounter, cBody.firstTimeSearch);
 
+            res.status(200).json({
+                ok: true,
+                msg: data
+            });
+            
+        } catch (error) {
+            console.log(`Error by getElements`);
+            console.log(error);
+            res.status(500).json({
+                ok: false,
+                msg: error
+            });
+        }
+    }
+
+    async setElementsAnotherSchema(req, res) {
+        try {
+            const data = await sendInfoInAnotherSchema();
+            // const data = await oldNotes.find({}).count();
             res.status(200).json({
                 ok: true,
                 msg: data

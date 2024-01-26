@@ -44,4 +44,4 @@ const notesContainer07 = new Schema({
     customIdReverse: { type: Number},
     idMongoPDF: { type: String }
 })
-module.exports = model('oldNotes2', notesContainer07)
+module.exports = model('allnotes', notesContainer07)
