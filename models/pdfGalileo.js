@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose')
 const pdfscSchema = new Schema({
-    idMegamedia: { type: Number, unique: [true, 'Se require un ID megamedia'] },
+    idMegamedia: { type: String, unique: [true, 'Se require un ID megamedia'] },
     publication: { type: Schema.Types.ObjectId, ref: 'Publications' },
     notebook: { type: Schema.Types.ObjectId, ref: 'NoteBooks' },
     section: { type: Schema.Types.ObjectId, ref: 'Section' },
