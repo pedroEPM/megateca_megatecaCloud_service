@@ -23,12 +23,13 @@ class AdvSearch {
     async getAllInfo(type, settings, settingsForCounter, firstTimeSearch) {
         try {
 
-            const db = await openDB();
+            // const db = await openDB();
             const schemaName = schemaType(type);
             let getAll = [];
             if (firstTimeSearch !== 'true') {
                 getAll = await schemaName.aggregate(settings);
             } else {
+                console.log(settingsForCounter)
                 getAll = await schemaName.aggregate(settingsForCounter).next();
             }
             // await closeDB(); 
