@@ -11,7 +11,7 @@ const { closeDB, openDB } = require('../utils/mongoConntection');
 const schemaType = (type) => {
     switch (type) {
         case 'Notas':
-            return 'allnotes';
+            return notes;
         case 'Imagenes':
             return '';
         case 'PDFs':
@@ -27,9 +27,9 @@ class AdvSearch {
             const schemaName = schemaType(type);
             let getAll = [];
             if (firstTimeSearch !== 'true') {
-                getAll = await db.collection(schemaName).aggregate(settings).toArray();
+                getAll = await schemaName.aggregate(settings).toArray();
             } else {
-                getAll = await db.collection(schemaName).aggregate(settingsForCounter).next();
+                getAll = await schemaName.aggregate(settingsForCounter).next();
             }
             // await closeDB(); 
 
