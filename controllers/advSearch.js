@@ -9,9 +9,9 @@ class AdvSearch {
             
             const cBody = req.body;
             const settingsForCounter = [
-                // {
-                //     $count: 'totalDocuments',
-                // },
+                {
+                    $count: 'totalDocuments',
+                },
             ];
             const settings = [
                 { $sort: {
