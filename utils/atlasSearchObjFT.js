@@ -41,7 +41,7 @@ const setTypeSearchFT = (type, search) => {
 const indexFortype = (type) => {
     switch (type) {
         case 'Notas':
-            return 'allNotesIndex';
+            return 'notesFT';
         case 'Imagenes':
             return '';
         case 'PDFs':
