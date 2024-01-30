@@ -29,8 +29,8 @@ class AdvSearch {
             if (firstTimeSearch !== 'true') {
                 getAll = await schemaName.aggregate(settings);
             } else {
-                console.log(settingsForCounter)
                 getAll = await schemaName.aggregate(settingsForCounter);
+                console.log(getAll)
                 // getAll = await schemaName.aggregate(settingsForCounter).next();
             }
             // await closeDB(); 
