@@ -6,16 +6,20 @@ const oldPdfs = require('../models/pfds222');
 const allPdfs = require('../models/pdfGalileo');
 const pdfs = require('../models/pdfs');
 
-const { setNote, setPDF } = require('../utils/returnSimpleBody')
+const oldImages = require('../models/oldImages');
+const allImages = require('../models/allImages');
+const images = require('../models/images');
+
+const { setNote, setPDF, setImage } = require('../utils/returnSimpleBody')
 const { closeDB, openDB } = require('../utils/mongoConntection');
 const schemaType = (type) => {
     switch (type) {
         case 'Notas':
             return notes;
         case 'Imagenes':
-            return '';
+            return images;
         case 'PDFs':
-            return '';
+            return pdfs;
     }
 }
 
@@ -48,14 +52,15 @@ class AdvSearch {
             for(let i = 2020; i >= 1925; i--) {
                 console.log(`--- ${i} ---`)
                 const cBody = {
-                    datePublication: {
+                    publicationDate: {
+                    // datePublication: {
                     // date: {
                         $gte: new Date(`${i}-01-01`),
                         $lt: new Date(`${i + 1}-01-01`)
                     }
                 }
-                const allOldNotes = await oldPdfs.find(cBody);
-                const cAllNotes = await allPdfs.find(cBody);
+                const allOldNotes = await oldImages.find(cBody);
+                const cAllNotes = await allImages.find(cBody);
 
                 const allData = [];
 
@@ -64,7 +69,7 @@ class AdvSearch {
                 
                 if(allData.length > 0) console.log(`-- ${allData.length} length --`)
                 for(const newAllLitleData of allData) {
-                    const newNote = new pdfs(setPDF(newAllLitleData));
+                    const newNote = new images(setImage(newAllLitleData));
                     await newNote.save();
                 }
             }

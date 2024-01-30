@@ -61,8 +61,49 @@ const setPDF = (littleNewData) => {
     }
 }
 
+const setImage = (littleNewData) => {
+    return {
+        id: Number(littleNewData.customId),
+        _id: littleNewData._id,
+        idMegamedia: `cIDM-${littleNewData.idMegamedia}` ?? null,
+        idOriginal: littleNewData.idOriginal ?? '',
+        sectionRef: littleNewData.sectionRef ?? null,
+        section: littleNewData.section ?? null,
+        editionRef: littleNewData.editionRef ?? null,
+        idNoticia: littleNewData.idNoticia ?? null,
+        photographer: littleNewData.photographer ?? null,
+        idAgency: littleNewData.idAgency ?? null,
+        clasificationRef: littleNewData.clasificationRef ?? null,
+        publicationRef: littleNewData.publicationRef ?? null,
+        noteBookRef: littleNewData.noteBookRef ?? null,
+        description: littleNewData.description ?? ' ',
+        place: littleNewData.place ?? ' ',
+        LastModifyDate: new Date(littleNewData.LastModifyDate) ?? new Date().toISOString(),
+        material: littleNewData.material ?? ' ',
+        publicationDate: littleNewData.publicationDate ?? new Date().toISOString(),
+        dateStringInfo: littleNewData.dateStringInfo ?? new Date(),
+        date: littleNewData.date ?? new Date().toISOString(),
+        origenDate: littleNewData.origenDate ?? new Date().toISOString(),
+        isPublished: littleNewData.isPublished ?? false,
+        isYearBook: littleNewData.isYearBook ?? false,
+        isSelleable: littleNewData.isSelleable ?? false,
+        observations: littleNewData.observations ?? ' ',
+        page: littleNewData.page ?? '0',
+        status: littleNewData.status ?? false,
+        externalFotographer: littleNewData.externalFotographer ?? '',
+        imageSrc: littleNewData.imageSrc ?? '',
+        folder: littleNewData.folder ?? '',
+        ImageTitle: littleNewData.ImageTitle ?? '',
+        isEditedByGalileo: littleNewData.isEditedByGalileo ?? false,
+        isNewId: littleNewData.isNewId,
+        customId: littleNewData.customId,
+        customIdReverse: littleNewData.customIdReverse,
+        odPdfName: littleNewData.odPdfName,
+    }
+}
 
 module.exports = {
     setNote,
     setPDF,
+    setImage
 }
