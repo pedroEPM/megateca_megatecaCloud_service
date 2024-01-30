@@ -101,4 +101,4 @@ const Imagesc = new Schema({
     // externalFotographer: { type: String },
 
 })
-module.exports = model('images', Imagesc)
+module.exports = model('Imagesc', Imagesc)
