@@ -27,7 +27,7 @@ class AdvSearch {
             const schemaName = schemaType(type);
             let getAll = [];
             if (firstTimeSearch !== 'true') {
-                getAll = await schemaName.aggregate(settings).toArray();
+                getAll = await schemaName.aggregate(settings);
             } else {
                 getAll = await schemaName.aggregate(settingsForCounter).next();
             }
