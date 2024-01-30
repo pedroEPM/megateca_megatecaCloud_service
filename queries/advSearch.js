@@ -30,8 +30,6 @@ class AdvSearch {
                 getAll = await schemaName.aggregate(settings);
             } else {
                 getAll = await schemaName.aggregate(settingsForCounter);
-                console.log(getAll)
-                // getAll = await schemaName.aggregate(settingsForCounter).next();
             }
             // await closeDB(); 
 
