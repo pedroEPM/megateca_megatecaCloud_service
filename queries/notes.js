@@ -1,4 +1,4 @@
-// const oldNotes = require('../models/oldNotes2');
+const notes = require('../models/notes');
 const { closeDB, openDB } = require('../utils/mongoConntection');
 const fs = require('fs');
 
@@ -115,8 +115,23 @@ const getAllNotes = async (body = {}) => {
     }
 }
 
+const updatedNoteById = async (id, cBody) => {
+    try {
+        const note = await notes.findOneAndUpdate(id);
+        note.idMongoPDF = cBody.idMongoPDF;
+
+        await note.save();
+        
+        return note;
+    } catch (error) {
+        console.log(`Errir by updated Note by ID`);
+        console.log(error)
+    }
+}
+
 module.exports = {
-    getAllNotes
+    getAllNotes,
+    updatedNoteById
 }
 
    
