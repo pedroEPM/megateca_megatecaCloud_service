@@ -28,26 +28,17 @@ class AdvSearch {
         try {
 
             // const db = await openDB();
-            if(settings[0]?.$search?.index === 'notesFT' && type === 'PDFs') {
-                type = 'Notas';
-                settings.push({$project: {
-                    idMongoPDF: 1
-                }});
-
-                settingsForCounter.push({$project: {
-                    idMongoPDF: 1
-                }});
-            }
-
-            console.log(type)
+            if(settings[0]?.$search?.index === 'notesFT' && type === 'PDFs') type = 'Notas';
+ 
             const schemaName = schemaType(type);
             let getAll = [];
             if (firstTimeSearch !== 'true') {
                 console.log(settings)
-
+                console.log('up settings')
                 getAll = await schemaName.aggregate(settings);
             } else {
                 console.log(settingsForCounter)
+                console.log('up settings for')
 
                 getAll = await schemaName.aggregate(settingsForCounter);
             }
