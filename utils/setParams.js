@@ -24,6 +24,8 @@ const setCustomParams = (body) => {
         noteBody.match = {};
     }
 
+    if(body.search === 'PDFs' && (body.ignoredwords || body.keywords || body.keysentence)) noteBody.match = { idMegamediaPDF: {$ne: null} }
+
     if (body.date && body.dateRange && !body.key) {
         let firstDate = new Date(body.dateRange).setHours(0, 0, 0);
         let secondDate = new Date(body.date).setHours(23, 59, 59);
