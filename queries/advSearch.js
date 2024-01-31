@@ -29,7 +29,17 @@ class AdvSearch {
 
             // const db = await openDB();
             console.log(settings[0].$search.compound)
-            if(settings[0]?.$search?.index === 'notesFT' && type === 'PDFs') type = 'Notas';
+            if(settings[0]?.$search?.index === 'notesFT' && type === 'PDFs') {
+                type = 'Notas';
+                settings.push({$project: {
+                    idMongoPDF: 1
+                }});
+
+                settingsForCounter.push({$project: {
+                    idMongoPDF: 1
+                }});
+            }
+
             console.log(type)
             const schemaName = schemaType(type);
             let getAll = [];
