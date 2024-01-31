@@ -28,6 +28,7 @@ class AdvSearch {
         try {
 
             // const db = await openDB();
+            console.log(settings)
             const schemaName = schemaType(type);
             let getAll = [];
             if (firstTimeSearch !== 'true') {
