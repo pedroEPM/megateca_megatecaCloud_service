@@ -30,6 +30,7 @@ class AdvSearch {
             // const db = await openDB();
             console.log(settings)
             if(settings[0]?.$search?.index === 'notesFT' && type === 'PDFs') type = 'Notas';
+            console.log(type)
             const schemaName = schemaType(type);
             let getAll = [];
             if (firstTimeSearch !== 'true') {
