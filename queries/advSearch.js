@@ -28,7 +28,6 @@ class AdvSearch {
         try {
 
             // const db = await openDB();
-            console.log(settings[0].$search.compound)
             if(settings[0]?.$search?.index === 'notesFT' && type === 'PDFs') {
                 type = 'Notas';
                 settings.push({$project: {
@@ -44,8 +43,12 @@ class AdvSearch {
             const schemaName = schemaType(type);
             let getAll = [];
             if (firstTimeSearch !== 'true') {
+                console.log(settings)
+
                 getAll = await schemaName.aggregate(settings);
             } else {
+                console.log(settingsForCounter)
+
                 getAll = await schemaName.aggregate(settingsForCounter);
             }
             // await closeDB(); 
