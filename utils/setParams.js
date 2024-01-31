@@ -80,7 +80,9 @@ const setCustomParams = (body) => {
         });
         pdfBody.cSearch.compound.mustNot = imageBody.cSearch.compound.mustNot = noteBody.cSearch.compound.mustNot = littleData;
         
-    }   
+    }
+
+    if(body.search === 'PDFs' && (body.ignoredwords || body.keywords || body.keysentence)) return noteBody;
     
     switch(body.search) {
         case 'Notas':

@@ -45,7 +45,7 @@ const indexFortype = (type) => {
         case 'Imagenes':
             return '';
         case 'PDFs':
-            return 'allNotesIndex';
+            return 'notesFT';
     }
 }
 
