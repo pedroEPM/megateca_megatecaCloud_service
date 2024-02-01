@@ -70,7 +70,7 @@ class AdvSearch {
                 // const allOldNotes = await oldImages.find(cBody);
                 // const cAllNotes = await allImages.find(cBody);
 
-                const cNotes = notes.find(cBody).count(); 
+                const cNotes = await notes.find(cBody).count(); 
                 if(cNotes > 0 ) console.log(`${cNotes} - ${i}`)
                 if(cNotes > 0 ) num = num + cNotes;
                 // const allData = [];
