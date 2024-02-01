@@ -65,7 +65,7 @@ class AdvSearch {
                         $gte: new Date(`${i}-01-01`),
                         $lt: new Date(`${i + 1}-01-01`)
                     },
-                    idMongoPDF: {$ne: null}
+                    idMongoPDF: null
                 }
                 // const allOldNotes = await oldImages.find(cBody);
                 // const cAllNotes = await allImages.find(cBody);
