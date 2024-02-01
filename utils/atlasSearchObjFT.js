@@ -43,7 +43,7 @@ const indexFortype = (type) => {
         case 'Notas':
             return 'notesFT';
         case 'Imagenes':
-            return '';
+            return 'imagesFT';
         case 'PDFs':
             return 'notesFT';
     }

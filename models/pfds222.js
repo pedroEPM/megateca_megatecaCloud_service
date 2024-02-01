@@ -50,4 +50,4 @@ const pdfscSchema = new Schema({
     isCheckedForNewNotebook: { type: Boolean }
 
 })
-module.exports = model('Pdfsc2222', pdfscSchema)
+// module.exports = model('Pdfsc2222', pdfscSchema)

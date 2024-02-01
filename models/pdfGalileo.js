@@ -54,4 +54,4 @@ const pdfscSchema = new Schema({
     isHadIdNoticia: {type: Boolean}
 
 })
-module.exports = model('Pdfsgalileo', pdfscSchema)
+// module.exports = model('Pdfsgalileo', pdfscSchema)
