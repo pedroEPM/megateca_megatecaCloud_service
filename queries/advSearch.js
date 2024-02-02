@@ -56,7 +56,7 @@ class AdvSearch {
 
         try {
             let num = 0;
-            for(let i = 2015; i >= 1925; i--) {
+            for(let i = 2014; i >= 1925; i--) {
                 console.log(`--- ${i} ---`)
                 const cBody = {
                     // publicationDate: {
