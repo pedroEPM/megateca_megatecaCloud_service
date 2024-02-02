@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const uri = `mongodb+srv://${process.env.MONGO_USER_NAME}:${process.env.MONGO_PASSWORD}@clustermegateca.ymjsd.mongodb.net/megamedia`;
-
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
