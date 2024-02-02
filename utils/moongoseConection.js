@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 
 const uri = `mongodb+srv://${process.env.MONGO_USER_NAME}:${process.env.MONGO_PASSWORD}@clustermegateca.ymjsd.mongodb.net/megamedia`;
-mongoose.set('poolSize', 10);
+
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  minPoolSize: 10
 }).then(() => {
   console.log('Database: \x1b[32m%s\x1b[0m', 'connected')
 }).catch((err) => {
