@@ -70,19 +70,17 @@ class AdvSearch {
                 // const allOldNotes = await oldImages.find(cBody);
                 // const cAllNotes = await allImages.find(cBody);
 
-                const cNotes = await notes.find(cBody).count(); 
-                if(cNotes > 0 ) console.log(`${cNotes} - ${i}`)
-                if(cNotes > 0 ) num = num + cNotes;
+                const cNotes = await notes.find(cBody);
                 // const allData = [];
 
                 // for(const LitleNote of allOldNotes) allData.push(LitleNote);
                 // for(const LitleNote of cAllNotes) allData.push(LitleNote);
                 
-                // if(allData.length > 0) console.log(`-- ${allData.length} length --`)
-                // for(const newAllLitleData of allData) {
-                //     const newNote = new images(setImage(newAllLitleData));
-                //     await newNote.save();
-                // }
+                if(cNotes.length > 0) console.log(`-- ${cNotes.length} length --`)
+                for(const newAllLitleData of cNotes) {
+                    newAllLitleData.idMongoPDF = null;
+                    await newAllLitleData.save();
+                }
             }
 
            
