@@ -5,7 +5,7 @@ const uri = `mongodb+srv://${process.env.MONGO_USER_NAME}:${process.env.MONGO_PA
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  // minPoolSize: 10
+  minPoolSize: 20
 }).then(() => {
   console.log('Database: \x1b[32m%s\x1b[0m', 'connected')
 }).catch((err) => {
