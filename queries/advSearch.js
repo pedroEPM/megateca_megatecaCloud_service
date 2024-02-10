@@ -33,12 +33,12 @@ class AdvSearch {
             const schemaName = schemaType(type);
             let getAll = [];
             if (firstTimeSearch !== 'true') {
-                console.log(settings)
-                console.log('up settings')
+                // console.log(settings)
+                // console.log('up settings')
                 getAll = await schemaName.aggregate(settings);
             } else {
-                console.log(settingsForCounter)
-                console.log('up settings for')
+                // console.log(settingsForCounter)
+                // console.log('up settings for')
 
                 getAll = await schemaName.aggregate(settingsForCounter);
             }

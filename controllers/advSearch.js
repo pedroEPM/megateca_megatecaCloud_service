@@ -13,6 +13,9 @@ class AdvSearch {
                     $count: 'totalDocuments',
                 },
             ];
+
+            const cSort = cBody.cSort;
+            console.log(`cSort: ${cSort}`)
             const settings = [
                 { $sort: {
                     customId: 1
