@@ -19,7 +19,7 @@ class AdvSearch {
             } } : { $sort: {
                 customIdReverse: 1
             } };
-            console.log(`cSort: ${cSort}`)
+            console.log(cSort)
             const settings = [
                 cSort,
                 { $skip: cBody.cSkip },
