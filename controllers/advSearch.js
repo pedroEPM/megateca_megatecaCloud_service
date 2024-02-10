@@ -14,12 +14,14 @@ class AdvSearch {
                 },
             ];
 
-            const cSort = cBody.cSort;
+            const cSort = cBody.cSort === -1 ? { $sort: {
+                customId: 1
+            } } : { $sort: {
+                customIdReverse: 1
+            } };
             console.log(`cSort: ${cSort}`)
             const settings = [
-                { $sort: {
-                    customId: 1
-                } },
+                cSort,
                 { $skip: cBody.cSkip },
                 { $limit: cBody.cLimit }
             ];

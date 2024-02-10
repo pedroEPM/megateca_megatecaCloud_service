@@ -51,7 +51,7 @@ const pdfscSchema = new Schema({
     isCheckedFromGalileo: { type: Boolean },
     oldNotebookId: { type: Number },
     isCheckedForNewNotebook: { type: Boolean },
-    isHadIdNoticia: {type: Boolean}
-
+    isHadIdNoticia: {type: Boolean},
+    customIdReverse: { type: Number }
 })
 module.exports = model('pdfs', pdfscSchema)
