@@ -29,8 +29,8 @@ const setCustomParams = (body) => {
     if (body.date && body.dateRange && !body.key) {
         console.log(body.dateRange)
         console.log(body.date)
-        let firstDate = new Date(body.dateRange).setHours(0, 0, 0);
-        let secondDate = new Date(body.date).setHours(23, 59, 59);
+        let firstDate = new Date(`${body.dateRange}T00:00:00Z`);
+        let secondDate = new Date(`${body.date}T23:59:59Z`);
         firstDate = new Date(firstDate).toISOString();
         secondDate = new Date(secondDate).toISOString();
     
