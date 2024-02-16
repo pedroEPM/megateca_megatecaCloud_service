@@ -27,6 +27,8 @@ const setCustomParams = (body) => {
     if(body.search === 'PDFs' && (body.ignoredwords || body.keywords || body.keysentence)) noteBody.match = { idMongoPDF: { $ne: null } }
 
     if (body.date && body.dateRange && !body.key) {
+        console.log(body.dateRange)
+        console.log(body.date)
         let firstDate = new Date(body.dateRange).setHours(0, 0, 0);
         let secondDate = new Date(body.date).setHours(23, 59, 59);
         firstDate = new Date(firstDate).toISOString();
