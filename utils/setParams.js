@@ -18,31 +18,20 @@ const setCustomParams = (body) => {
         };
     }
 
-    if( body.date || body.dateRange || body.publicationRef || body.noteBookRef ) {
+    // if( !body.date || !body.dateRange || body.publicationRef || body.noteBookRef ) {
         pdfBody.match = {};
         imageBody.match = {};
         noteBody.match = {};
-    }
+    // }
 
     if(body.search === 'PDFs' && (body.ignoredwords || body.keywords || body.keysentence)) noteBody.match = { idMongoPDF: { $ne: null } }
 
     if(!body.date && !body.dateRange && !body.key) {
-        let firstDate = new Date(`${new Date().toISOString().substring(0,10)}T00:00:00Z`);
-        let secondDate = new Date(`1800-12-31T23:59:59Z`);
-        firstDate = new Date(firstDate).toISOString();
-        secondDate = new Date(secondDate).toISOString();
-    
-        console.log(firstDate)
-        console.log(secondDate)
-
-        pdfBody.match.datePublication = imageBody.match.publicationDate = noteBody.match.date = { $gte: new Date(firstDate), $lte: new Date(secondDate) }; 
-        // pdfBody.match.datePublication = imageBody.match.publicationDate = noteBody.match.date = { $gte: new Date(body.dateRange), $lte: new Date(body.date) }; 
-        console.log(pdfBody.match.datePublication)
+        body.dateRange = new Date().toISOString().substring(0,10);
+        body.date = new Date('1800-12-31').toISOString().substring(0,10);
     }
 
     if (body.date && body.dateRange && !body.key) {
-        console.log(body.date)
-        console.log(body.dateRange)
         let firstDate = new Date(`${body.dateRange}T00:00:00Z`);
         let secondDate = new Date(`${body.date}T23:59:59Z`);
         firstDate = new Date(firstDate).toISOString();
