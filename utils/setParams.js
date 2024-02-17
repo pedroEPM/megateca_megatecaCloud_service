@@ -32,6 +32,9 @@ const setCustomParams = (body) => {
         firstDate = new Date(firstDate).toISOString();
         secondDate = new Date(secondDate).toISOString();
     
+        console.log(firstDate)
+        console.log(secondDate)
+
         pdfBody.match.datePublication = imageBody.match.publicationDate = noteBody.match.date = { $gte: new Date(firstDate), $lte: new Date(secondDate) }; 
         // pdfBody.match.datePublication = imageBody.match.publicationDate = noteBody.match.date = { $gte: new Date(body.dateRange), $lte: new Date(body.date) }; 
         console.log(pdfBody.match.datePublication)
