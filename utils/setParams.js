@@ -27,8 +27,8 @@ const setCustomParams = (body) => {
     if(body.search === 'PDFs' && (body.ignoredwords || body.keywords || body.keysentence)) noteBody.match = { idMongoPDF: { $ne: null } }
 
     if(!body.date && !body.dateRange && !body.key) {
-        body.dateRange = new Date().toISOString().substring(0,10);
-        body.date = new Date('1800-12-31').toISOString().substring(0,10);
+        body.date = new Date().toISOString().substring(0,10);
+        body.dateRange = new Date('1800-12-31').toISOString().substring(0,10);
     }
 
     if (body.date && body.dateRange && !body.key) {
