@@ -26,11 +26,11 @@ const setCustomParams = (body) => {
 
     if(body.search === 'PDFs' && (body.ignoredwords || body.keywords || body.keysentence)) noteBody.match = { idMongoPDF: { $ne: null } }
 
-    if(!body.date && !body.dateRange && !body.key) {
-        body.dateRange = new Date().toISOString().substring(0,10);
-        body.date = new Date('1800-12-31').toISOString().substring(0,10);
-        console.log(body)
-    }
+    // if(!body.date && !body.dateRange && !body.key) {
+    //     body.dateRange = new Date().toISOString().substring(0,10);
+    //     body.date = new Date('1800-12-31').toISOString().substring(0,10);
+    //     console.log(body)
+    // }
 
     if (body.date && body.dateRange && !body.key) {
         let firstDate = new Date(`${body.dateRange}T00:00:00Z`);
